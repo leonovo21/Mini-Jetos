@@ -10,5 +10,6 @@ func main() {
 	//worker.Hoi3()
 	//worker.Hmain()
 	//worker.Wmain()
-	worker.Mslacker()
+	//worker.Mslacker()
+	worker.Mhello()
 }
