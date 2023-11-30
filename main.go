@@ -5,5 +5,10 @@ import (
 )
 
 func main() {
-	worker.Hmain()
+	// worker.CalculateResellPrice(20.0, 12.0)
+	//worker.ChooseVehicle(option1, option2)
+	//worker.Hoi3()
+	//worker.Hmain()
+	//worker.Wmain()
+	worker.Mslacker()
 }
