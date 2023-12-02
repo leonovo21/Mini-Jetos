@@ -12,5 +12,8 @@ func main() {
 	//worker.Wmain()
 	//worker.Mslacker()
 	//worker.Mhello()
-	worker.Macci()
+	//worker.Macci()
+	//worker.Nmain()
+	worker.Mtodo()
+
 }
