@@ -15,5 +15,6 @@ func main() {
 	//worker.Macci()
 	//worker.Nmain()
 	worker.Mtodo()
+	//worker.Tmain()
 
 }

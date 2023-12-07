@@ -47,7 +47,17 @@ func Add() {
 	fmt.Scan(&new_task)
 	fmt.Println("Description of the", new_task)
 	fmt.Scan(&new_desc)
-	T := TODOS{
+
+	file, err := ioutil.ReadFile("todos.json")
+	if err != nil {
+		print(err)
+	}
+
+	data :=[]TODOS{}
+
+	json.Unmarshal(file, &data)
+
+	new_data := &TODOS{
 		Id: +1,
 		Task_Name: []TODO{
 			TODO{
@@ -58,8 +68,10 @@ func Add() {
 			},
 		},
 	}
+	data = append(data, *new_data)
 
-	file, _ := json.MarshalIndent(T, "", "")
+	dataByte, _ := json.MarshalIndent(data, "", "")
 
-	_ = ioutil.WriteFile("todos.json", file, 0644)
+
+	_ = ioutil.WriteFile("todos.json", dataByte, 0644)
 }
