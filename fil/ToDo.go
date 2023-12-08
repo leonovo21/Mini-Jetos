@@ -53,7 +53,7 @@ func Add() {
 		print(err)
 	}
 
-	data :=[]TODOS{}
+	data := []TODOS{}
 
 	json.Unmarshal(file, &data)
 
@@ -71,7 +71,6 @@ func Add() {
 	data = append(data, *new_data)
 
 	dataByte, _ := json.MarshalIndent(data, "", "")
-
 
 	_ = ioutil.WriteFile("todos.json", dataByte, 0644)
 }
