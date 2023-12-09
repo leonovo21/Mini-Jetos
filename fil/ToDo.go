@@ -8,16 +8,14 @@ import (
 	"time"
 )
 
+var id = 0
+
 type TODO struct {
 	Task          string    `json:"task"`
 	Done          bool      `json:"done"`
 	Desc          string    `json:"desc"`
 	Created_date  time.Time `json:"creat"`
 	Finished_date time.Time `json:"finished"`
-}
-type TODOS struct {
-	Id        int `json:"Id"`
-	Task_Name []TODO
 }
 
 func Mtodo() {
@@ -33,11 +31,16 @@ func Mtodo() {
 	}
 }
 func Show() {
-	content, err := os.ReadFile("todos.json")
-	if err != nil {
-		fmt.Println("No todos")
-	}
-	fmt.Println(string(content))
+	jsonFile, _ := os.Open("todos.json")
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	var todos TODO
+
+	json.Unmarshal(byteValue, &todos)
+
+	fmt.Println(todos.Task)
 }
 func Add() {
 
@@ -53,21 +56,16 @@ func Add() {
 		print(err)
 	}
 
-	data := []TODOS{}
+	data := []TODO{}
 
 	json.Unmarshal(file, &data)
 
-	new_data := &TODOS{
-		Id: +1,
-		Task_Name: []TODO{
-			TODO{
+	new_data := &TODO{
 				Done:         false,
 				Task:         new_task,
 				Desc:         new_desc,
 				Created_date: time.Now(),
-			},
-		},
-	}
+			}
 	data = append(data, *new_data)
 
 	dataByte, _ := json.MarshalIndent(data, "", "")
