@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"os"
 	"time"
 )
 
@@ -31,16 +30,13 @@ func Mtodo() {
 	}
 }
 func Show() {
-	jsonFile, _ := os.Open("todos.json")
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	var todos TODO
-
-	json.Unmarshal(byteValue, &todos)
-
-	fmt.Println(todos.Task)
+	file, err := ioutil.ReadFile("todos.json")
+	if err != nil {
+		print(err)
+	}
+	var n TODO
+	err = json.Unmarshal(file, &n)
+	fmt.Println(n.Done)
 }
 func Add() {
 
@@ -61,11 +57,11 @@ func Add() {
 	json.Unmarshal(file, &data)
 
 	new_data := &TODO{
-				Done:         false,
-				Task:         new_task,
-				Desc:         new_desc,
-				Created_date: time.Now(),
-			}
+		Done:         false,
+		Task:         new_task,
+		Desc:         new_desc,
+		Created_date: time.Now(),
+	}
 	data = append(data, *new_data)
 
 	dataByte, _ := json.MarshalIndent(data, "", "")
