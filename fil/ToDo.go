@@ -10,11 +10,10 @@ import (
 var id = 0
 
 type TODO struct {
-	Task          string    `json:"task"`
-	Done          bool      `json:"done"`
-	Desc          string    `json:"desc"`
-	Created_date  time.Time `json:"creat"`
-	Finished_date time.Time `json:"finished"`
+	Task         string    `json:"task"`
+	Desc         string    `json:"desc"`
+	Done         bool      `json:"done"`
+	Created_date time.Time `json:"creat"`
 }
 
 func Mtodo() {
@@ -36,7 +35,10 @@ func Show() {
 	}
 	var n TODO
 	err = json.Unmarshal(file, &n)
-	fmt.Println(n.Done)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(file))
 }
 func Add() {
 
@@ -64,7 +66,7 @@ func Add() {
 	}
 	data = append(data, *new_data)
 
-	dataByte, _ := json.MarshalIndent(data, "", "")
+	dataByte, _ := json.MarshalIndent(data, "", "\t")
 
 	_ = ioutil.WriteFile("todos.json", dataByte, 0644)
 }
