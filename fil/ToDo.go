@@ -15,6 +15,10 @@ type TODO struct {
 	Done         bool      `json:"done"`
 	Created_date time.Time `json:"creat"`
 }
+type TODOS struct {
+    Id int `json:"id"`
+	Todos []TODO
+}
 
 func Mtodo() {
 	what := ""
@@ -54,15 +58,20 @@ func Add() {
 		print(err)
 	}
 
-	data := []TODO{}
+	data := []TODOS{}
 
 	json.Unmarshal(file, &data)
 
-	new_data := &TODO{
-		Done:         false,
-		Task:         new_task,
-		Desc:         new_desc,
-		Created_date: time.Now(),
+	new_data := &TODOS{
+		Id: 10,
+		Todos: []TODO{
+			TODO{
+				Done:         false,
+				Task:         new_task,
+				Desc:         new_desc,
+				Created_date: time.Now(),
+			},
+		},
 	}
 	data = append(data, *new_data)
 
