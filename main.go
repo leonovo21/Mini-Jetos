@@ -10,7 +10,7 @@ func main() {
 				ASCII	| ascii | NewHello| nhello |
 				Eternal	| worker| HashMap | hash   | 
 				hoi3	| hoi3	| Todo	  | todo   |
-				New	| new   |
+				New	| new   | Server  | ser    |
                 		====================================`
 	fmt.Println(choices)
 	choice := ""
@@ -31,5 +31,7 @@ func main() {
 		worker.Hoi3()
 	case choice == "todo":
 		worker.Mtodo()
+	case choice == "ser":
+		worker.Smain()
 	}
 }
