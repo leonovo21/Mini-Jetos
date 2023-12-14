@@ -16,7 +16,7 @@ type TODO struct {
 	Created_date time.Time `json:"creat"`
 }
 type TODOS struct {
-    Id int `json:"id"`
+	Id    int `json:"id"`
 	Todos []TODO
 }
 
