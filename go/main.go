@@ -17,6 +17,8 @@ func main() {
 	fmt.Scan(&choice)
 
 	switch {
+	case choice == "pito":
+		worker.Pmain()
 	case choice == "new":
 		worker.Nmain()
 	case choice == "nhello":
@@ -33,5 +35,8 @@ func main() {
 		worker.Mtodo()
 	case choice == "ser":
 		worker.Smain()
+	default:
+		fmt.Println("Thats not an option")
+
 	}
 }
