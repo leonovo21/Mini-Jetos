@@ -5,7 +5,7 @@ import (
 	worker "pro/fil"
 )
 
-func main() {
+func Mmain() {
 	choices := `				====================================
 				ASCII	| ascii | NewHello| nhello |
 				Eternal	| worker| HashMap | hash   | 
