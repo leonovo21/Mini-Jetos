@@ -5,7 +5,7 @@ import (
 	worker "pro/fil"
 )
 
-func Mmain() {
+func main() {
 	choices := `				====================================
 				ASCII	| ascii | NewHello| nhello |
 				Eternal	| worker| HashMap | hash   | 
@@ -17,6 +17,8 @@ func Mmain() {
 	fmt.Scan(&choice)
 
 	switch {
+	case choice == "gam":
+		worker.Gmain()
 	case choice == "pito":
 		worker.Pmain()
 	case choice == "new":

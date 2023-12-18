@@ -13,6 +13,7 @@ func Hmain() {
 	h.Add(1, "one")
 	h.Add(2, "two")
 	h.Add(3, "tree")
+	h.Add(4, "tree")
 
 	fmt.Println(h.Get(1))
 	fmt.Println(h.Get(2))
