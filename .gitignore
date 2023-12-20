@@ -1,4 +1,9 @@
 pito.png
+node_modules
 NewReadMe.md
 go.sum
 todos.json
+.gitignore
+dontTouch
+robots.txt
+manifest.json
