@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-function FetchCall(){
-    const [title, setTitle] = useState("")
-    const [email, setEmail] = useState("")
-}
+
 function App() {
     return(
         <body className='nb'>
@@ -20,7 +17,9 @@ function App() {
         </body>
     )
 }
+
 function send() {
     console.log("Send");
 }
+
 export default App

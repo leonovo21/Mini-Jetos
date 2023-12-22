@@ -1,17 +1,40 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"log"
+
+	"github.com/gofiber/fiber/v2"
 )
 
+type Block struct {
+	Id    int    `json:"id"`
+	Title string `json:"title"`
+	Email string `json:"email"`
+	Text  string `json:"text"`
+}
+
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Welcome to my website!")
+	app := fiber.New()
+	blocks := []Block{}
+
+	app.Get("/healthchck", func(c *fiber.Ctx) error {
+		return c.SendString("Ok")
 	})
 
-	fs := http.FileServer(http.Dir("static/"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	app.Post("/block", func(c *fiber.Ctx) error {
+		block := &Block{}
+		if err := c.BodyParser(block); err != nil {
+			return err
+		}
+		block.Id = len(blocks) + 1
 
-	http.ListenAndServe(":8080", nil)
+		blocks = append(blocks, *block)
+		return c.JSON(blocks)
+	})
+
+	app.Get("block/see", func(c *fiber.Ctx) error {
+		return c.JSON(blocks)
+	})
+	log.Fatal(app.Listen(":4000"))
+
 }
