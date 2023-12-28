@@ -1,25 +1,44 @@
-import { useState } from 'react';
-import './App.css'
+import React, { Component } from 'react';
+import Header from './components/Header/Header';
+import ChatHistory from './components/ChatHistory/ChatHistory';
+import ChatInput from './components/ChatInput/ChatInput';
+import './App.css';
+import { connect, sendMsg } from './api';
 
-function App() {
-    return(
-        <body className='nb'>
-            <style>{'body { background-color: wheat; }'}</style>
-            <h1 className="header">Hatsu</h1>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chatHistory: []
+    }
+  }
 
-            <input className="title" type='title' placeholder='Title'></input>
+  componentDidMount() {
+    connect((msg) => {
+      console.log("New Message")
+      this.setState(prevState => ({
+        chatHistory: [...prevState.chatHistory, msg]
+      }))
+      console.log(this.state);
+    });
+  }
 
-            <input className="email" type='email' placeholder='Email'></input>
+  send(event) {
+    if (event.keyCode === 13) {
+      sendMsg(event.target.value);
+      event.target.value = "";
+    }
+  }
 
-            <textarea className="Write-Area" placeholder='Write here'></textarea>
-
-            <button className='btn-send' onClick={send}>Send</button>
-        </body>
-    )
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <ChatHistory chatHistory={this.state.chatHistory} />
+        <ChatInput send={this.send} />
+      </div>
+    );
+  }
 }
 
-function send() {
-    console.log("Send");
-}
-
-export default App
+export default App;

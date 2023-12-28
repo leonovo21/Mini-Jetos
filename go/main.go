@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+//	y := 20
 	choices := `				====================================
 				ASCII	| ascii | NewHello| nhello |
 				Eternal	| worker| HashMap | hash   | 
@@ -17,6 +18,8 @@ func main() {
 	fmt.Scan(&choice)
 
 	switch {
+	case choice == "l":
+		worker.Lmain()
 	case choice == "gam":
 		worker.Gmain()
 	case choice == "pito":
