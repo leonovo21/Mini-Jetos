@@ -1,0 +1,22 @@
+#+TITLE: Projects
+#+AUTHOR: LEO
+#+Decription: This is my list of projects to do in golang
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+
+* Table of content:
+    * TODO
+    *** Web Scraping:
+        Build a terminal-Based web scraper that connects to a web and download a specified data and outputs in the terminal
+    * Done
+    *** Credit Card Valida-tor:
+        Implement the Luhn Algorithm as a microservice to validate credit card :numbers, Expose this through a JSON API
+    * TODO
+    *** YSQL Book Maneger System:
+        Create a system for managing books using YSQL(PostgreSQL distribution)
+    * Done
+    *** Email Verification Tool
+        Create an tool that verifies email address for validity
+    * TODO
+    *** Slacker Bot File Uploading
+        Build a Slackbot that allowns users to upload file

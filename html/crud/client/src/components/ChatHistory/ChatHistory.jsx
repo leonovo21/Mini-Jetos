@@ -10,6 +10,8 @@ class ChatHistory extends Component {
     return (
       <div className='ChatHistory'>
         <h2>Chat History</h2>
+        <input  className='title' placeholder='Tile'></input>
+        <input className='email' placeholder='email'></input>
         {messages}
       </div>
     );

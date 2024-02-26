@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	worker "pro/fil"
+	"pro/routes"
 )
 
 func main() {
-//	y := 20
+	//	y := 20
 	choices := `				====================================
 				ASCII	| ascii | NewHello| nhello |
 				Eternal	| worker| HashMap | hash   | 
@@ -40,6 +41,14 @@ func main() {
 		worker.Mtodo()
 	case choice == "ser":
 		worker.Smain()
+	case choice == "y":
+		worker.Ymain()
+	case choice == "credit":
+		worker.M_Validator()
+	case choice == "mail":
+		worker.Emain()
+	case choice == "routes":
+		routes.Rmain()
 	default:
 		fmt.Println("Thats not an option")
 
