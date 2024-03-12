@@ -1,0 +1,22 @@
+#+TITLE:        Project-Plan
+#+AUTHOR:       Leo
+#+Decription:   Programing of the software
+
+
+*** A list of Movies to watch
+    TODO A catalogue of movies that can be marked
+    as WATCHED TO-WATCH NOT-WATCHED 
+
+*** The Director to filter
+    TODO A way to filter the movies based on the 
+    Director
+
+*** The genres to filter
+    TODO Movies can be tagged to filter based of 
+    Genres
+*** The rating of the Movies    
+    TODO A way to filter based on the rating
+    of the Movie
+
+*** Torrent 
+    TODO Show a torrent link to the movie 
