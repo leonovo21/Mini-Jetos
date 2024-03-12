@@ -6,7 +6,6 @@ type HashTable struct {
 	table map[int]string
 }
 
-// TODO: this is a new todo
 func Hmain() {
 	h := newHashTable()
 

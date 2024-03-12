@@ -9,7 +9,7 @@ import (
 
 var id = 0
 
-type TODO struct {
+type tODO struct {
 	Task         string    `json:"task"`
 	Desc         string    `json:"desc"`
 	Done         bool      `json:"done"`
@@ -17,7 +17,7 @@ type TODO struct {
 }
 type TODOS struct {
 	Id    int `json:"id"`
-	Todos []TODO
+	Todos []tODO
 }
 
 func Mtodo() {
@@ -37,7 +37,7 @@ func Show() {
 	if err != nil {
 		print(err)
 	}
-	var n TODO
+	var n tODO
 	err = json.Unmarshal(file, &n)
 	if err != nil {
 		fmt.Println(err)
@@ -64,8 +64,8 @@ func Add() {
 
 	new_data := &TODOS{
 		Id: 10,
-		Todos: []TODO{
-			TODO{
+		Todos: []tODO{
+			tODO{
 				Done:         false,
 				Task:         new_task,
 				Desc:         new_desc,
